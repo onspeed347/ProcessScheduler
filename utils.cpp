@@ -21,8 +21,6 @@ void readInput(const string &filename) {
         inFile >> processes[i].pid >> processes[i].arrival_time >> processes[i].burst_time >> processes[i].priority;
         processes[i].remaining_time = processes[i].burst_time;
         processes[i].start_time = -1;
-        processes[i].waiting_time = 0;
-        processes[i].completion_time = 0;
     }
     inFile.close();
 }

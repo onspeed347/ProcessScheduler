@@ -1,16 +1,18 @@
 ProcessScheduler/
 │
-├── main.cpp                  // Hàm main() gọi các module, điều phối tổng thể
-├── Process.h                 // Khai báo struct Process & hằng số chung
-├── Utils.cpp                 // Các hàm in tiêu đề, in Gantt, in waiting list, kết quả
-├── Utils.h                  // Khai báo các hàm tiện ích
+├── main.cpp				// Hàm main() gọi các module, điều phối tổng thể
+├── Process.h				// Khai báo struct Process & hằng số chung
+├── Process.cpp			// Định nghĩa biến và hằng số chung
+├── Utils.h				// Khai báo các hàm in tiêu đề, in Gantt, in waiting list, kết quả
+├── Utils.cpp				// Định nghĩa các hàm tiện ích
 │
-├── algorithms/              // Folder chứa các thuật toán khác nhau
+├── algorithms/			// Folder chứa các thuật toán khác nhau
+│   ├── scheduler.h			//Khai báo các hàm thuật toán điều phối
 │   ├── FCFS.cpp
 │   ├── SJF.cpp
-│   ├── RR.cpp
+│   ├── RR.cpp	
 │   ├── SRTF.cpp
 │   ├── PriorityPreemptive.cpp
 │   └── PriorityNonPreemptive.cpp
 │
-└── input.txt                // File dữ liệu đầu vào
+└── input.txt				// File dữ liệu đầu vào

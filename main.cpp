@@ -4,9 +4,8 @@
 
 int main() {
     clearConsole();
-    readInput("input.txt");      
-    printHeader("PRIORITY NON-PREEMPTIVE");               
-    runPriorityNonPreemptive();  
-    printResult();                
+    readInput("input.txt");               
+    runFCFS();         
+    system("pause");
     return 0;
 }

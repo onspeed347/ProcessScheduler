@@ -14,10 +14,8 @@ struct Process {
     int priority;
     int remaining_time;
     int start_time;
-    int waiting_time;
     int completion_time;
-    int time_in_waiting_list = 0;
-    int color = 0;
+    int time_in_waiting_list;
 };
 
 extern vector<Process> processes;
