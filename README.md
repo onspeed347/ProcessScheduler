@@ -13,6 +13,7 @@ ProcessScheduler/
 │
 ├── algorithms/			// Folder chứa các thuật toán điều phối
 │   ├── scheduler.h			//Khai báo các hàm thuật toán điều phối
+│   ├── runAlgorithm		//Xử lý tiến trình dựa trên thuật toán được người dùng lựa chọn
 │   ├── FCFS.cpp
 │   ├── SJF.cpp
 │   ├── RR.cpp	
