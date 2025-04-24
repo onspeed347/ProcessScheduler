@@ -5,7 +5,7 @@ static int timeSlice = 0; // Đếm thời gian tiến trình đã chạy trong 
 void runRR() {
     // Nếu hết quantum
     if (timeSlice == quantum) {
-        runningProcess->remaining_time = current_time;
+        runningProcess->time_in_waiting_list = current_time; // Cập nhật thời gian vào hàng đợi
         waitingList.push(runningProcess); // Đưa lại vào cuối hàng đợi
         runningProcess = nullptr;
         timeSlice = 0;
