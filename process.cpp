@@ -4,8 +4,9 @@ vector<Process> processes;
 queue<Process*> waitingList;
 Process* runningProcess = nullptr;
 int current_time = 0;
-int prevWaitingSize = 0;
 int NUMBER_OF_PROCESS;
+int idx = 0;
+int prevWaitingSize = 0;
 
 const int REFRESH_MS = 500;
 const int UNIT_MS = 1;

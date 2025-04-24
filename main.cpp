@@ -4,8 +4,13 @@
 
 int main() {
     clearConsole();
-    readInput("input.txt");               
-    runFCFS();         
+    readInput("input.txt");  
+    sortProcessesByArrivalTime();
+    printInput();
+    int choice;
+    chooseAlgorithm(&choice);
+    clearConsole();
+    runAlgorithm(choice);
     system("pause");
     return 0;
 }

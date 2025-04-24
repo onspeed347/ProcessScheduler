@@ -10,11 +10,17 @@
 #include <chrono>
 
 void readInput(const string &filename);
+void printInput();
+void sortProcessesByArrivalTime();
+void checkArrival();
+void chooseAlgorithm(int *choice);
 void printGantt(char symbol);
 void printWaitingList(const queue<Process*>& original);
-void sortProcessesByArrivalTime();
-void printHeader(string header);
+void printHeader(int choice);
 void printResult();
+
+bool finishProcessing();
+
 void gotoXY(int x, int y);
 void clearConsole();
 void sleepMS(int ms);

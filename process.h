@@ -24,6 +24,7 @@ extern Process* runningProcess;
 extern int current_time;
 extern int prevWaitingSize;
 extern int NUMBER_OF_PROCESS;
+extern int idx;
 
 extern const int REFRESH_MS;
 extern const int UNIT_MS;

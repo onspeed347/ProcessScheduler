@@ -7,3 +7,5 @@ void runRR();
 void runFCFS();
 void runSJF();
 void runSRTF();
+
+void runAlgorithm(int choice);
