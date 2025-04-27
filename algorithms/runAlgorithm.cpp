@@ -12,7 +12,7 @@ void runAlgorithm(const int choice) {
             case 5: runPriorityNonPreemptive(); break;
             case 6: runPriorityPreemptive(); break;
         }
-        printWaitingList(waitingList);
+        printWaitingList();
         sleepMS(REFRESH_MS);
         current_time += UNIT_MS;
     }

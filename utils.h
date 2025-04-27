@@ -15,7 +15,7 @@ void sortProcessesByArrivalTime();
 void checkArrival();
 void chooseAlgorithm(int *choice);
 void printGantt(char symbol);
-void printWaitingList(const queue<Process*>& original);
+void printWaitingList();
 void printHeader(int choice);
 void printResult();
 

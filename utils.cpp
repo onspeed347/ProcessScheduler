@@ -73,11 +73,11 @@ void printGantt(char symbol) {
     }
 }
 
-void printWaitingList(const queue<Process*>& original) {
-    queue<Process*> tempList = original;
-
-    if ((int)(original.size()) < prevWaitingSize) {
-        for (int i = (int) (original.size()); i < prevWaitingSize; i++) {
+void printWaitingList() {
+    queue<Process*> tempList = waitingList;
+    int currentWaitingSize = (int) waitingList.size();
+    if (currentWaitingSize < prevWaitingSize) {
+        for (int i = currentWaitingSize; i < prevWaitingSize; i++) {
             gotoXY(0, 10 + i);
             cout << "                                 ";
         }
@@ -89,7 +89,7 @@ void printWaitingList(const queue<Process*>& original) {
         printf("%-5s%6d%10d%11d\n", p->pid.c_str() , p->time_in_waiting_list, p->priority, p->remaining_time);
         tempList.pop();
     }
-    prevWaitingSize = original.size();
+    prevWaitingSize = currentWaitingSize;
 }
 
 void printHeader(int choice) {
