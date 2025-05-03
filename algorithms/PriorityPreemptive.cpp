@@ -1,7 +1,7 @@
 #include "scheduler.h"
 
 void runPriorityPreemptive() {
-    Process* selected = nullptr; // Để trỏ đến tiến trình được chọn từ waitingList
+    Process* Highest = nullptr; // Để trỏ đến tiến trình được chọn từ waitingList
     
     if (!waitingList.empty()) { // Nếu có tiến trình trong hàng đợi
         vector<Process*> temp;
@@ -11,21 +11,21 @@ void runPriorityPreemptive() {
             waitingList.pop();
         }
         // Chọn tiến trình có priority nhỏ nhất
-        auto bestIt = min_element(temp.begin(), temp.end(), [](Process* a, Process* b) {
+        auto selected = min_element(temp.begin(), temp.end(), [](Process* a, Process* b) {
             if (a->priority != b->priority)
                 return a->priority < b->priority;
-            return a->arrival_time < b->arrival_time;
+            return a->time_in_waiting_list < b->time_in_waiting_list;
         });
-        selected = *bestIt;
-        temp.erase(bestIt);
+        Highest = *selected;
+        temp.erase(selected);
         // Trả lại các tiến trình còn lại vào hàng đợi
         for (Process* p : temp) {
             waitingList.push(p);
         }
     }
     if (!runningProcess) {  // Nếu không có tiến trình nào đang chạy
-        if (selected) {     // Nhưng có tiến trình mới đến
-            runningProcess = selected;
+        if (Highest) {     // Nhưng có tiến trình mới đến
+            runningProcess = Highest;
             if (runningProcess->start_time == -1) {
                 runningProcess->start_time = current_time;
             }
@@ -40,11 +40,11 @@ void runPriorityPreemptive() {
             printGantt('-'); // Không có gì để chạy
         }
     }
-    else if (selected && selected->priority < runningProcess->priority) {
+    else if (Highest && Highest->priority < runningProcess->priority) {
         // Hoặc có tiến trình đang chạy nhưng có tiến trình mới đến có priority nhỏ hơn
         runningProcess->time_in_waiting_list = current_time; // Cập nhật thời gian vào hàng đợi
         waitingList.push(runningProcess); // Trả lại tiến trình cũ vào hàng đợi
-        runningProcess = selected; // Chọn tiến trình mới
+        runningProcess = Highest; // Chọn tiến trình mới
         if (runningProcess->start_time == -1) {
             runningProcess->start_time = current_time;
         }
@@ -57,8 +57,8 @@ void runPriorityPreemptive() {
     } 
     else {
         // Tiến trình đang chạy, không có tiến trình mới đến hoặc tiến trình mới có priority lớn hơn
-        if (selected) {
-            waitingList.push(selected);
+        if (Highest) {
+            waitingList.push(Highest);
         } // Trả lại tiến trình mới vào hàng đợi
         runningProcess->remaining_time -= UNIT_MS;
         printGantt('#');
