@@ -20,9 +20,7 @@ void runPriorityNonPreemptive() {
 
         // Chọn tiến trình có priority nhỏ nhất
         auto bestIt = min_element(temp.begin(), temp.end(), [](Process* a, Process* b) {
-            if (a->priority != b->priority)
-                return a->priority < b->priority;
-            return a->arrival_time < b->arrival_time;
+            return a->priority < b->priority;
         });
 
         runningProcess = *bestIt;

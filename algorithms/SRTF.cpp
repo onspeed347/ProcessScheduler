@@ -12,7 +12,9 @@ void runSRTF() {
         }
         // Chọn tiến trình có remaining_time nhỏ nhất
         auto shortestIt = min_element(temp.begin(), temp.end(), [](Process* a, Process* b) {
-            return a->remaining_time < b->remaining_time;
+            if (a->remaining_time != b->remaining_time)
+                return a->remaining_time < b->remaining_time;
+            return a->time_in_waiting_list < b->time_in_waiting_list; // Nếu bằng nhau thì chọn cái nào đến trước
         });
         selected = *shortestIt;
         temp.erase(shortestIt);
